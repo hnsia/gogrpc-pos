@@ -5,6 +5,7 @@ import (
 
 	"github.com/hnsia/gogrpc-pos/services/common/genproto/orders"
 	"github.com/hnsia/gogrpc-pos/services/orders/types"
+	"google.golang.org/grpc"
 )
 
 type OrdersGrpcHandler struct {
@@ -12,10 +13,13 @@ type OrdersGrpcHandler struct {
 	orders.UnimplementedOrderServiceServer
 }
 
-func NewGrpcOrdersService() {
-	gRPCHandler := &OrdersGrpcHandler{}
+func NewGrpcOrdersService(grpc *grpc.Server, ordersService types.OrderService) {
+	gRPCHandler := &OrdersGrpcHandler{
+		ordersService: ordersService,
+	}
 
 	// register the OrderServiceServer
+	orders.RegisterOrderServiceServer(grpc, gRPCHandler)
 }
 
 func (h *OrdersGrpcHandler) CreateOrder(ctx context.Context, req *orders.CreateOrderRequest) (*orders.CreateOrderResponse, error) {
