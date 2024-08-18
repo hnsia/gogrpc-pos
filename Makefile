@@ -1,8 +1,8 @@
 run-orders:
-	@go run services/orders/*.go
+	@go run ./services/orders/
 
 run-kitchen:
-	@go run services/kitchen/*.go
+	@go run ./services/kitchen/
 
 gen:
 	@protoc \
