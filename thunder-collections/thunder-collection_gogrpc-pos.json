@@ -1,0 +1,28 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "gogrpc-pos",
+    "collectionId": "50b503d4-d32e-49d1-836d-f5c7e1594003",
+    "dateExported": "2024-08-18T13:21:57.257Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9fde1f00-2b29-4873-af85-b2139765f52f",
+            "colId": "50b503d4-d32e-49d1-836d-f5c7e1594003",
+            "containerId": "",
+            "name": "Create Order",
+            "url": "http://localhost:8000/orders",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-08-18T13:20:49.236Z",
+            "modified": "2024-08-18T13:21:28.850Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"CustomerID\": 1,\n  \"OrderID\": 2,\n  \"Quantity\": 3\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "cht0jhYKRXGOhVgPVuqa3XZ3fDIvigUBU4c3OHMJIkvVUdJ-pv8sDSN0SRp1bBcoiUhUWpFf7dY7WnugVjZNYQ"
+}
