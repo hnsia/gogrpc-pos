@@ -41,3 +41,12 @@ func (h *OrdersGrpcHandler) CreateOrder(ctx context.Context, req *orders.CreateO
 
 	return res, nil
 }
+
+func (h *OrdersGrpcHandler) GetOrders(ctx context.Context, req *orders.GetOrdersRequest) (*orders.GetOrdersResponse, error) {
+	o := h.ordersService.GetOrders(ctx)
+	res := &orders.GetOrdersResponse{
+		Orders: o,
+	}
+
+	return res, nil
+}
