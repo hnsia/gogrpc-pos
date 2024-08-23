@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"html/template"
 	"log"
 	"net/http"
 	"time"
@@ -36,6 +37,19 @@ func (s *httpServer) Run() error {
 		})
 		if err != nil {
 			log.Fatalf("client error: %v", err)
+		}
+
+		res, err := c.GetOrders(ctx, &orders.GetOrdersRequest{
+			CustomerID: 24,
+		})
+		if err != nil {
+			log.Fatalf("client error: %v", err)
+		}
+
+		t := template.Must(template.New("orders").Parse(ordersTemplate))
+
+		if err := t.Execute(w, res.GetOrders()); err != nil {
+			log.Fatalf("template error: %v", err)
 		}
 	})
 

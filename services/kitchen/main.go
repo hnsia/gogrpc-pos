@@ -17,5 +17,6 @@ func NewGRPCClient(addr string) *grpc.ClientConn {
 }
 
 func main() {
-
+	httpServer := NewHttpServer(":1000")
+	httpServer.Run()
 }
